@@ -1,0 +1,90 @@
+<div>
+    <div class="siteNavStyle">
+        <span style="float:left; font-size:2em">Add User</span>
+        <span style="float:right; border: 3px solid #ff6600">
+    
+     <a  href="#/" class="btn siteNavAnchor" >  <span  style="ma-colorrgin-left: 5px; color: #ff6600" class="glyphicon glyphicon-chevron-left" ></span> Back </a>
+        </span>
+    </div>
+    <br/>
+    <div ng-if="vm.addSuccess" class='alert alert-success'>
+        User successfully added. You can find it in the list of active users! Add another User or use Back to see list.
+    </div>
+    <div ng-if="vm.addFailed" class='alert alert-error'>
+        Sorry, something went wrong. Adding user was not successful.
+    </div>
+    <br/>
+    <div class="siteContentStyle">
+        <form name="vm.addUserForm" ng-submit='vm.addUser()' novalidate>
+            <div class="row siteInputGrp">
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <label for="firstName" class="userAttribHeadingInline">First Name</label>
+                    <input type="text" name="firstName" class="form-control" ng-model="vm.user.firstName" required placeholder="First Name" />
+                    <div ng-messages="vm.addUserForm.firstName.$error">
+                        <div class="error frmErr" ng-message="required">First Name Required!</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <label for="lastName" class="userAttribHeadingInline">Last Name</label>
+                    <input type="text" name="lastName" class="form-control" ng-model="vm.user.lastName" placeholder="Last Name" />
+                </div>
+            </div>
+            <div class="row siteInputGrp">
+                <div class="col-sm-12 col-md-8 col-lg-4">
+                    <label for="email" class="userAttribHeadingInline">E-mail</label>
+                    <input type="email" name="email" class="form-control" ng-model="vm.user.email" unique-user-email required placeholder="someone@example.com" />
+                    <div ng-messages="vm.addUserForm.email.$error">
+                        <div class="error frmErr" ng-message="required">E-mail Required!</div>
+                        <div class="error frmErr" ng-message="email">Not valid email!</div>
+                        <div class="error frmErr" ng-message='uniqueUserEmail'>User with email already registered
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row siteInputGrp">
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <label for="street" class="userAttribHeadingInline">Street</label>
+                    <input type="text" name="street" class="form-control" ng-model="vm.user.address.street" placeholder="Street Address" />
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <label for="city" class="userAttribHeadingInline">City</label>
+                    <input type="text" name="city" class="form-control" ng-model="vm.user.address.city" placeholder="City" />
+                </div>
+            </div>
+            <div class="row siteInputGrp">
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <label for="state" class="userAttribHeadingInline">State</label>
+                    <input type="text" name="state" class="form-control" ng-model="vm.user.address.state" placeholder="State" />
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <label for="zip" class="userAttribHeadingInline">Zip</label>
+                    <input type="number" name="zip" class="form-control" ng-model="vm.user.address.zip" placeholder="Zip" />
+                </div>
+            </div>
+            <div class="row siteInputGrp">
+                <div class="col-sm-12 col-md-8 col-lg-4">
+                    <label for="country" class="userAttribHeadingInline">Country</label>
+                    <input type="text" name="country" class="form-control" ng-model="vm.user.address.email" placeholder="Country" />
+                </div>
+            </div>
+            <div class="row siteInputGrp">
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <label for="company" class="userAttribHeadingInline">Company</label>
+                    <input type="text" name="company" class="form-control" ng-model="vm.user.company.name" placeholder="Company Name" />
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <label for="website" class="userAttribHeadingInline">Website</label>
+                    <input type="url" name="website" class="form-control" ng-model="vm.user.company.website" placeholder="Company Website" />
+                    <div ng-messages="vm.addUserForm.website.$error">
+                        <div class="error frmErr" ng-message="url">Not valid URL!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row siteInputGrp">
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <input type="submit" value="Add" class="btn btn-default userBtnStyle" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

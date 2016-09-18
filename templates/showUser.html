@@ -1,0 +1,54 @@
+<div>
+    <div class="siteNavStyle">
+        <span style="float:left; font-size:2em">User Details</span>
+        <span style="float:right; border: 3px solid #ff6600">
+        
+         <a  href="#/" class="btn siteNavAnchor" >  <span  style="ma-colorrgin-left: 5px; color: #ff6600" class="glyphicon glyphicon-chevron-left" ></span> Back </a>
+        </span>
+    </div>
+    <br/>
+    <div ng-if="vm.deleteSuccess" class='alert alert-success'>
+        User is successfully deleted. You will automatically be routed to User List.
+    </div>
+    <br/>
+    <div class="siteContentStyle">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-2">
+                <div class="form-group">
+                    <span class="userAttribHeading">Name
+                </span>
+                    <span class="userAttribValue">{{vm.user.firstName + " " + vm.user.lastName}} 
+                </span>
+                </div>
+                <div class="form-group">
+                    <span class="userAttribHeading">E-mail
+                </span>
+                    <span class="userAttribValue">{{vm.user.email}} 
+                </span>
+                </div>
+                <div class="form-group">
+                    <span class="userAttribHeading">Address
+                </span>
+                    <span class="userAttribValue">{{vm.user.address.street}} 
+                </span>
+                    <span class="userAttribValue">{{vm.user.address.city + ", " + vm.user.address.state + ", " + vm.user.address.zip + " " + vm.user.address.country }} 
+                </span>
+                </div>
+                <div class="form-group">
+                    <span class="userAttribHeading">Company
+                </span>
+                    <span class="userAttribValue">{{vm.user.company.name}} 
+                </span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2">
+                <img style="width:100%; height:100%; border: 4px solid #ff6600" src="{{vm.user.profilePic}}" alt="{{ 'picture of ' + vm.user.firstName + ' ' + vm.user.lastName }}" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-2">
+                <button ng-click="vm.deleteUser(vm.user.id)" class="btn btn-default userBtnStyle">Delete User</button>
+            </div>
+        </div>
+    </div>
+</div>

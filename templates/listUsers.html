@@ -1,0 +1,31 @@
+<div>
+    <div class="siteNavStyle">
+        <span style="float:left; font-size:2em">Users</span>
+        <span style="float:right; border: 3px solid #ff6600">
+    
+     <a href="#/addUser" class="btn siteNavAnchor" >  <span  style="margin-left: 5px; color: #ff6600" class="glyphicon glyphicon-plus" ></span> Add User </a>
+        </span>
+    </div>
+   
+    <br/>
+    <div class="siteContentStyle">
+        <table class="table">
+            <tr>
+                <th class="siteRowBorderHead"></th>
+                <th class="userAttrHead siteRowBorderHead">Name</th>
+                <th class="userAttrHead siteRowBorderHead">E-mail</th>
+                <th class="userAttrHead siteRowBorderHead">City</th>
+                <th class="userAttrHead siteRowBorderHead">Company</th>
+            </tr>
+            <tr ng-repeat="user in vm.users" ng-class="{'userRead':user.read}" ng-click="vm.showUser(user.id)">
+                <td class="siteRowBorder" ng-show="user.profilePic"><img style="width:44px; height:44px" class="img-circle box-shadow" src="{{user.profilePic}}" alt="{{ 'picture of ' + user.firstName + ' ' + user.lastName }}" /></td>
+                <td ng-hide="user.profilePic"><img style="width:44px; height:44px" class="img-circle" src="{{user.profilePic}}" alt="{{ 'picture of ' + user.firstName + ' ' + user.lastName }}" /></td>
+                <td style="display: table-cell;vertical-align: middle; " class="siteRowBorder">{{user.firstName + " " + user.lastName }}</td>
+                <td class="siteRowBorder" style="display: table-cell;vertical-align: middle;" class="siteRowCell">{{user.email}}</td>
+                <td class="siteRowBorder" style="display: table-cell;vertical-align: middle;">{{user.address.city}}</td>
+                <td  class="siteRowBorder" style="display: table-cell;vertical-align: middle;">{{user.company.name}}</td>
+                
+            </tr>
+        </table>
+    </div>
+</div>

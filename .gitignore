@@ -1,0 +1,4 @@
+bower_components/
+node_modules/
+es6egen.sublime-project
+npm-debug*
